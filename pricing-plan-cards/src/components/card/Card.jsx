@@ -1,15 +1,16 @@
 import "./Card.css";
-const Cards = [
-  { h3: "Free", p: "For Individuals", h2: "$0" },
-  { h3: "Pro", p: "For Company", h2: "$80" },
-  { h3: "Enterprise", p: "For Team", h2: "$180" },
-];
-export const Card = (Cards) => {
+import { Item } from "../item/Item";
+
+export const Card = ({ title, body, footer, index, sub }) => {
+  const cardOrder = `card-${index + 1}`;
+  const btnOrder = `submit${index + 1}`;
   return (
-    <div className="card">
-      <h3>{Cards.h3}</h3>
-      <p>{Cards.p}</p>
-      <h2>{Cards.h2}</h2>
+    <div className={cardOrder}>
+      <h3>{title}</h3>
+      <p>{body}</p>
+      <h2>{footer}</h2>
+      <Item sub={sub} />
+      <button className={btnOrder}>Subscribe</button>
     </div>
   );
 };
